@@ -73,8 +73,7 @@
 
                 const DepositBtn = document.getElementById("adddeposit");
                     DepositBtn.addEventListener("click", function() {
-                   const DAmount = document.getElementById("depositamount").value;
-                    const DNum = parseFloat(DAmount);
+                 const DNum = getInputNumber("depositamount");
                
 
 
@@ -102,16 +101,18 @@
 //withdraw button
              const WithdrawBtn = document.getElementById("minwithdraw");
              WithdrawBtn.addEventListener("click", function(){
-                
+               const WNum = getInputNumber("withdrawamount");
+               console.log(WNum);
                 })
 
 
-            function getInputNumber(){
-                const WAmount = document.getElementById("withdrawamount").value;
-                const WNum = parseFloat(WAmount);
-            }
                 
-                
+                function getInputNumber(){
+                    const Wamount = document.getElementById(id).value;
+                const WNum = parseFloat(Wamount);
+                return WNum;
+
+                }
 
 
                        
