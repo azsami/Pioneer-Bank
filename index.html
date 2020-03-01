@@ -102,15 +102,21 @@
              const WithdrawBtn = document.getElementById("minwithdraw");
              WithdrawBtn.addEventListener("click", function(){
                const WNum = getInputNumber("withdrawamount");
-               console.log(WNum);
+
+
+               updateSpanText("currentwithdraw", WNum);
+               updateSpanText("currentbalance", -1 * WNum);
+               document.getElementById("withdrawamount").value = "";
+
+                
                 })
 
 
                 
-                function getInputNumber(){
-                    const Wamount = document.getElementById(id).value;
-                const WNum = parseFloat(Wamount);
-                return WNum;
+                function getInputNumber(id){
+                const amount = document.getElementById(id).value;
+                const ANum = parseFloat(amount);
+                return ANum;
 
                 }
 
