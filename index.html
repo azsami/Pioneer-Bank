@@ -1,0 +1,122 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Pioneer Bank</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+
+
+            <div id="loginarea">
+                <h1 class="BankTitle">Welcome To Pioneer Bank</h1>
+
+                <div class="submitArea">
+                    <h4>LogIn</h4><br>
+                    <input type="text" class="form-control" placeholder="Enter Email"><br>
+                    <input type="password" class="form-control" placeholder="Input Password"><br>
+                    <button id="login" class="btn btn-success">Enter</button>
+                </div>
+            </div>
+        <div id="transaction-area">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="deposit status">
+                        <h5>Deposit</h5>
+                    <h2>$ <span id="currentdeposit">00</span></h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="withdraw status">
+                        <h5>Withdraw</h5>
+                    <h2>$ <span id="currentwithdraw">00</span></h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="balance status">
+                        <h5>Balance</h5>
+                    <h2>$ <span id="currentbalance">1240</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="submitArea2">
+                    <div class="col-md-6">
+                        <h4>Deposit</h4>
+                        <input id="depositamount" type="text" class="form-control" placeholder="Type $"><br><button id="adddeposit" class="btn btn-success">Deposit </button>
+                    </div>
+                </div>
+                <div class="submitArea2">
+                    <div class="col-md-6">
+                        <h4>Withdraw</h4>
+                        <input id="withdrawamount" type="text" class="form-control" placeholder="Type $"><br><button id="minwithdraw" class="btn btn-success">Withdraw </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+            <script>
+                const loginBtn = document.getElementById("login");
+                loginBtn.addEventListener("click", function(){
+                const loginArea = document.getElementById("loginarea");
+                loginArea.style.display = "none";
+                const transactionArea = document.getElementById("transaction-area");
+                transactionArea.style.display = "block";
+                })
+
+
+
+                const DepositBtn = document.getElementById("adddeposit");
+                    DepositBtn.addEventListener("click", function() {
+                   const DAmount = document.getElementById("depositamount").value;
+                    const DNum = parseFloat(DAmount);
+               
+
+
+                    // const C_Deposit= document.getElementById("currentdeposit").innerText;
+                    // const CD_Num = parseFloat(C_Deposit);
+                    // const T_Deposit = DNum + CD_Num;
+                    
+                    // document.getElementById("currentdeposit").innerText = T_Deposit;
+                    updateSpanText("currentdeposit", DNum);
+
+                    updateSpanText("currentbalance", DNum);
+
+                    document.getElementById("depositamount").value = "";
+
+
+                })
+
+                function updateSpanText(id, DNum){
+                    const Current = document.getElementById(id).innerText;
+                    const C = parseFloat(Current);
+                    const T = DNum + C;
+                    document.getElementById(id).innerText = T; 
+                    
+                }
+//withdraw button
+             const WithdrawBtn = document.getElementById("minwithdraw");
+             WithdrawBtn.addEventListener("click", function(){
+                
+                })
+
+
+            function getInputNumber(){
+                const WAmount = document.getElementById("withdrawamount").value;
+                const WNum = parseFloat(WAmount);
+            }
+                
+                
+
+
+                       
+                
+            </script>
+
+        </body>
+</html>
